@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SE Palmeiras - Maior do Brasil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #00552e 0%, #003d22 100%);
+      color: white;
+      min-height: 100vh;
+    }
+    header {
+      background: rgba(0,0,0,0.75);
+      padding: 15px 5%;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: #c9d300;
+      letter-spacing: -1px;
+      text-shadow: 0 0 20px rgba(201, 211, 0, 0.6);
+    }
+    .menu {
+      display: flex;
+      gap: 32px;
+    }
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.05rem;
+      transition: all 0.3s;
+    }
+    .menu a:hover {
+      color: #c9d300;
+      text-shadow: 0 0 15px #c9d300;
+    }
+    .hero {
+      height: 100vh;
+      min-height: 720px;
+      background: linear-gradient(rgba(0, 85, 46, 0.7), rgba(0, 61, 34, 0.85)),
+                  url('https://s2-ge.glbimg.com/CzeoiA0rHwSlF1UQJXLccKkrT0w=/0x0:2048x1152/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2020/A/f/GAnA86TaycnXLLAWHWBA/allianz.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    .hero-content {
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(4rem, 10vw, 9rem);
+      line-height: 0.9;
+      margin-bottom: 20px;
+      color: #c9d300;
+      text-shadow: 0 8px 30px rgba(0,0,0,0.9);
+      letter-spacing: -4px;
+    }
+    .hero h2 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+    .btn {
+      display: inline-block;
+      background: #c9d300;
+      color: #003d22;
+      padding: 18px 48px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.35s;
+      box-shadow: 0 10px 30px rgba(201, 211, 0, 0.4);
+    }
+    .btn:hover {
+      transform: translateY(-6px) scale(1.06);
+      box-shadow: 0 20px 50px rgba(201, 211, 0, 0.6);
+      background: #e0e800;
+    }
+    section {
+      padding: 80px 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3rem;
+      color: #c9d300;
+      margin-bottom: 40px;
+      text-align: center;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: transform 0.4s;
+    }
+    .gallery img:hover {
+      transform: scale(1.06);
+    }
+    footer {
+      background: rgba(0,0,0,0.8);
+      padding: 60px 5% 30px;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">PALMEIRAS</div>
+      <div class="menu">
+        <a href="#home">Início</a>
+        <a href="#elenco">Elenco</a>
+        <a href="#estadio">Allianz Parque</a>
+        <a href="#site">Site Oficial</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>SE PALMEIRAS</h1>
+      <h2>O Maior Campeão do Brasil 🐷⚽</h2>
+      <a href="https://www.palmeiras.com.br/" target="_blank" class="btn">Site Oficial</a>
+    </div>
+  </section>
+
+  <section id="elenco">
+    <h2>Elenco Atual - Avanti!</h2>
+    <div class="gallery">
+      <img src="https://s2-ge.glbimg.com/nGWZ9iBeuzoHrYqoVhiKSNwcBvg=/0x0:5427x3619/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2025/0/5/PD2KtcQdGmnOjSErHfcg/gettyimages-2249109591.jpg" alt="Elenco Palmeiras em campo">
+      <img src="http://conteudo.imguol.com.br/c/esporte/a2/2023/12/07/jogadores-do-palmeiras-posam-ao-lado-de-trofeu-do-campeonato-brasileiro-1701925571878_v2_4x3.jpg" alt="Comemoração Palmeiras">
+      <img src="https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2024/10/elenco-palmeiras.jpg?w=1200&h=900&crop=1" alt="Time Palmeiras treino">
+      <img src="https://lncimg.lance.com.br/cdn-cgi/image/width=950,quality=75,fit=pad,format=webp/uploads/2025/11/LDU-x-Palmeiras-Libertadores-scaled-aspect-ratio-512-320.jpg" alt="Palmeiras na Libertadores">
+      <img src="https://palmeirasonline.com/wp-content/uploads/2025/06/O-time-da-SE-Palmeiras-posa-para-foto-em-jogo-contra-a-equipe-do-Inter-Miami-CF-durante-partida-valida-pela-fase-de-grupos-da-Copa-do-Mundo-de-Clubes-da-FIFA.webp" alt="Palmeiras Mundial de Clubes">
+    </div>
+  </section>
+
+  <section id="estadio" style="background: rgba(0,0,0,0.3);">
+    <h2>Allianz Parque - Nossa Casa</h2>
+    <div class="gallery">
+      <img src="https://s2-ge.glbimg.com/CzeoiA0rHwSlF1UQJXLccKkrT0w=/0x0:2048x1152/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2020/A/f/GAnA86TaycnXLLAWHWBA/allianz.jpg" alt="Allianz Parque vista interna">
+      <img src="http://conteudo.imguol.com.br/c/esporte/1e/2021/11/19/vista-aerea-do-allianz-parque-1637295078035_v2_1920x1080.jpg" alt="Allianz Parque vista aérea">
+      <img src="https://gusnarea.com/wp-content/uploads/2015/11/dsc03509.jpg" alt="Torcida no Allianz Parque">
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 – Página temática do Palmeiras • Feito com carinho por um torcedor verde • Não oficial</p>
+    <p>AVANTI PALESTRA! 🟢⚪🐷</p>
+  </footer>
+
+</body>
+</html>
