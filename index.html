@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nike — Just Do It</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --preto:  #080808;
+  --branco: #f5f5f5;
+  --cinza:  #111111;
+  --cinza2: #1c1c1c;
+  --laranja:#ff4500;
+  --muted:  #555;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Barlow',sans-serif;background:var(--preto);color:var(--branco);overflow-x:hidden;}
+ul{list-style:none;}
+a{text-decoration:none;color:inherit;}
+img{display:block;}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-thumb{background:var(--laranja);}
+
+/* ── HEADER ── */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:68px;padding:0 60px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(8,8,8,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.05);
+  transition:background .4s;
+}
+.logo-wrap{display:flex;align-items:center;}
+.logo-wrap img{height:38px;width:auto;filter:invert(1);transition:filter .3s;}
+.logo-wrap img:hover{filter:invert(1) sepia(1) saturate(6) hue-rotate(-10deg);}
+nav a{
+  margin-left:36px;font-size:12px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;color:var(--muted);
+  transition:color .25s;position:relative;padding-bottom:3px;
+}
+nav a::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--laranja);transform:scaleX(0);transition:transform .3s;}
+nav a:hover{color:var(--branco);}
+nav a:hover::after{transform:scaleX(1);}
+.btn-nav{
+  margin-left:36px;padding:10px 24px;
+  background:var(--laranja);color:#fff;
+  font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;
+  border:none;cursor:pointer;
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+  transition:filter .25s,transform .2s;
+}
+.btn-nav:hover{filter:brightness(1.2);transform:translateY(-1px);}
+
+/* ── HERO ── */
+.hero{
+  height:100vh;min-height:640px;
+  position:relative;display:flex;align-items:flex-end;overflow:hidden;
+  padding-bottom:100px;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1600&q=80&auto=format&fit=crop') center/cover no-repeat;
+  transform:scale(1.04);
+  animation:zoomIn 12s ease-out forwards;
+}
+@keyframes zoomIn{from{transform:scale(1.04)}to{transform:scale(1)}}
+.hero-over{
+  position:absolute;inset:0;
+  background:linear-gradient(to right,rgba(8,8,8,.95) 35%,rgba(8,8,8,.4) 70%,transparent);
+}
+.hero-body{
+  position:relative;z-index:2;padding:0 80px;max-width:700px;
+  animation:fadeUp .9s ease .3s both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:translateY(0)}}
+.kicker{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:11px;font-weight:700;letter-spacing:5px;text-transform:uppercase;
+  color:var(--laranja);margin-bottom:20px;
+}
+.kicker::before{content:'';width:36px;height:1px;background:var(--laranja);}
+.hero-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(72px,11vw,150px);
+  line-height:.88;margin-bottom:26px;letter-spacing:1px;
+}
+.hero-title span{color:var(--laranja);}
+.hero-sub{font-size:18px;font-weight:300;color:rgba(245,245,245,.6);line-height:1.7;margin-bottom:44px;max-width:440px;}
+.btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-p{
+  display:inline-block;padding:16px 44px;
+  background:var(--laranja);color:#fff;
+  font-size:12px;font-weight:900;letter-spacing:3px;text-transform:uppercase;
+  border:none;cursor:pointer;
+  clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));
+  transition:filter .25s,transform .2s,box-shadow .25s;
+}
+.btn-p:hover{filter:brightness(1.15);transform:translateY(-2px);box-shadow:0 14px 40px rgba(255,69,0,.4);}
+.btn-g{
+  display:inline-block;padding:15px 44px;
+  background:transparent;color:var(--laranja);
+  border:1px solid rgba(255,69,0,.4);
+  font-size:12px;font-weight:900;letter-spacing:3px;text-transform:uppercase;cursor:pointer;
+  clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));
+  transition:background .25s,transform .2s;
+}
+.btn-g:hover{background:rgba(255,69,0,.08);transform:translateY(-2px);}
+.hero-scroll{
+  position:absolute;bottom:40px;right:70px;z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);
+}
+.hero-scroll::after{content:'';width:1px;height:60px;background:linear-gradient(to bottom,var(--laranja),transparent);animation:scrollLine 2s ease-in-out infinite;}
+@keyframes scrollLine{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── LABELS ── */
+.sec-label{display:inline-flex;align-items:center;gap:12px;font-size:10px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--laranja);margin-bottom:18px;}
+.sec-label::before{content:'';width:28px;height:1px;background:var(--laranja);}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,6vw,80px);line-height:.95;margin-bottom:22px;}
+.sec-title span{color:var(--laranja);}
+
+/* ── ABOUT ── */
+.about{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  background:var(--cinza);
+}
+.about-txt{padding:100px 80px;display:flex;flex-direction:column;justify-content:center;}
+.about-body{color:rgba(245,245,245,.55);font-size:17px;line-height:1.85;font-weight:300;margin-bottom:32px;}
+.about-stats{display:flex;gap:40px;margin-top:8px;}
+.a-stat p:first-child{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--laranja);line-height:1;}
+.a-stat p:last-child{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+.about-img{
+  overflow:hidden;position:relative;
+  background:url('https://images.unsplash.com/photo-1556906781-9a412961a28c?w=800&q=80&auto=format&fit=crop') center/cover no-repeat;
+  min-height:500px;
+}
+.about-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--cinza) 0%,transparent 40%);}
+
+/* ── VIDEO ── */
+.video-section{background:var(--preto);padding:100px 80px;}
+.video-wrap{
+  position:relative;width:100%;max-width:1100px;margin:50px auto 0;
+  aspect-ratio:16/9;overflow:hidden;
+  box-shadow:0 30px 100px rgba(0,0,0,.8);
+}
+.video-wrap::before{content:'';position:absolute;inset:-2px;background:linear-gradient(135deg,var(--laranja),#ff8c00,var(--laranja));z-index:-1;border-radius:2px;}
+.video-wrap iframe{width:100%;height:100%;border:none;display:block;}
+.video-caption{text-align:center;margin-top:30px;color:var(--muted);font-size:14px;letter-spacing:2px;text-transform:uppercase;}
+.video-caption strong{color:var(--laranja);}
+
+/* ── PRODUTOS ── */
+.produtos{padding:100px 60px;background:var(--cinza);}
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:50px;}
+.prod-card{background:var(--preto);overflow:hidden;cursor:pointer;position:relative;transition:transform .3s;}
+.prod-card:hover{transform:translateY(-5px);z-index:2;}
+.prod-img{position:relative;overflow:hidden;aspect-ratio:1/1;}
+.prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s,filter .4s;filter:brightness(.8);}
+.prod-card:hover .prod-img img{transform:scale(1.08);filter:brightness(1);}
+.prod-tag{position:absolute;top:16px;left:16px;font-size:9px;font-weight:900;letter-spacing:3px;text-transform:uppercase;padding:5px 14px;background:var(--laranja);color:#fff;z-index:2;}
+.prod-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(8,8,8,.95) 0%,transparent 55%);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:24px;z-index:1;
+}
+.prod-genre{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--laranja);font-weight:700;margin-bottom:6px;}
+.prod-name-ov{font-family:'Bebas Neue',sans-serif;font-size:26px;}
+.prod-quick{position:absolute;inset:0;z-index:4;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;}
+.prod-card:hover .prod-quick{opacity:1;}
+.prod-body{padding:22px 24px;background:var(--cinza2);}
+.prod-name{font-family:'Bebas Neue',sans-serif;font-size:20px;margin-bottom:4px;}
+.prod-desc{font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.5;}
+.prod-foot{display:flex;justify-content:space-between;align-items:center;}
+.prod-price{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--laranja);}
+.btn-buy{
+  background:transparent;border:1px solid rgba(255,69,0,.4);color:var(--laranja);
+  padding:9px 20px;font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;cursor:pointer;
+  transition:background .25s,box-shadow .25s;
+}
+.btn-buy:hover{background:rgba(255,69,0,.1);box-shadow:0 0 18px rgba(255,69,0,.2);}
+
+/* ── LOCALIZAÇÃO ── */
+.location{padding:100px 80px;background:var(--preto);}
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:50px;align-items:stretch;}
+.map-wrap{position:relative;min-height:480px;overflow:hidden;}
+.map-wrap::after{content:'';position:absolute;inset:0;border:2px solid rgba(255,69,0,.25);pointer-events:none;z-index:2;}
+.map-wrap iframe{width:100%;height:100%;min-height:480px;border:none;display:block;filter:grayscale(30%) contrast(1.1);}
+.loc-info{display:flex;flex-direction:column;gap:3px;}
+.loc-card{
+  background:var(--cinza);padding:36px 40px;flex:1;
+  border-left:3px solid var(--laranja);position:relative;overflow:hidden;
+}
+.loc-card::before{
+  content:'';position:absolute;top:0;right:0;bottom:0;width:3px;
+  background:linear-gradient(to bottom,var(--laranja),transparent);
+}
+.loc-card-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--laranja);font-weight:700;margin-bottom:14px;}
+.loc-card h3{font-family:'Bebas Neue',sans-serif;font-size:30px;margin-bottom:10px;}
+.loc-card p{color:var(--muted);font-size:15px;line-height:1.75;margin-bottom:16px;}
+.loc-meta{display:flex;gap:24px;flex-wrap:wrap;}
+.loc-meta span{font-size:13px;color:rgba(245,245,245,.6);}
+.loc-meta strong{color:var(--branco);}
+.loc-card-dark{
+  background:var(--laranja);padding:36px 40px;
+}
+.loc-card-dark h3{font-family:'Bebas Neue',sans-serif;font-size:30px;margin-bottom:14px;color:var(--preto);}
+.loc-hours{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;}
+.loc-hours div p:first-child{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(8,8,8,.6);margin-bottom:3px;}
+.loc-hours div p:last-child{font-size:15px;color:var(--preto);font-weight:700;}
+
+/* ── FOOTER ── */
+footer{background:#040404;padding:70px 80px 28px;border-top:1px solid rgba(255,69,0,.12);}
+footer::before{content:'';display:block;height:1px;background:linear-gradient(to right,transparent,var(--laranja),transparent);margin-bottom:60px;}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:50px;}
+.ft-logo img{height:44px;width:auto;filter:invert(1);margin-bottom:20px;}
+.ft-desc{color:var(--muted);font-size:14px;line-height:1.8;max-width:240px;font-weight:300;}
+.ft-ht{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--laranja);font-weight:700;margin-bottom:18px;}
+.ft-links li{margin-bottom:11px;}
+.ft-links a{color:var(--muted);font-size:14px;transition:color .25s,padding-left .25s;}
+.ft-links a:hover{color:var(--branco);padding-left:6px;}
+.ft-bot{border-top:1px solid rgba(255,255,255,.06);padding-top:28px;display:flex;justify-content:space-between;color:var(--muted);font-size:13px;}
+
+/* MODAL */
+.modal{display:none;position:fixed;inset:0;background:rgba(8,8,8,.92);z-index:9000;align-items:center;justify-content:center;backdrop-filter:blur(8px);}
+.modal.on{display:flex;}
+.modal-box{
+  background:var(--cinza2);padding:50px 60px;text-align:center;max-width:440px;
+  clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px));
+  animation:pop .35s cubic-bezier(.34,1.56,.64,1);
+  border-top:2px solid var(--laranja);
+}
+@keyframes pop{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-ico{font-size:52px;margin-bottom:18px;}
+.modal-t{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--laranja);margin-bottom:12px;}
+.modal-p{color:var(--muted);font-size:15px;line-height:1.6;margin-bottom:28px;}
+.modal-close{background:var(--laranja);color:#fff;border:none;padding:14px 34px;font-family:'Barlow',sans-serif;font-weight:900;font-size:11px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));transition:filter .2s;}
+.modal-close:hover{filter:brightness(1.2);}
+
+/* TOAST */
+.toast{position:fixed;bottom:36px;right:36px;z-index:9001;background:var(--laranja);color:#fff;padding:14px 26px;font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;pointer-events:none;opacity:0;transform:translateY(16px);transition:opacity .4s,transform .4s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));}
+.toast.on{opacity:1;transform:translateY(0);}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  header{padding:0 20px;}
+  nav{display:none;}
+  .hero-body{padding:0 24px;}
+  .about{grid-template-columns:1fr;}
+  .about-img{min-height:300px;}
+  .video-section,.produtos,.location{padding:60px 20px;}
+  .prod-grid{grid-template-columns:1fr;}
+  .loc-grid{grid-template-columns:1fr;}
+  footer{padding:50px 20px 20px;}
+  .ft{grid-template-columns:1fr 1fr;gap:36px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="logo-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike"
+         onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/200px-Logo_NIKE.svg.png'">
+  </div>
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#video">Campanha</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#loja">Lojas</a>
+    <a href="#produtos" class="btn-nav">Comprar</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-over"></div>
+  <div class="hero-body">
+    <p class="kicker">Nova Coleção 2025</p>
+    <h1 class="hero-title">JUST<br><span>DO</span><br>IT.</h1>
+    <p class="hero-sub">Performance e estilo que levam você além dos seus limites. Cada passo, uma conquista.</p>
+    <div class="btns">
+      <a href="#produtos" class="btn-p">Ver Coleção</a>
+      <a href="#video" class="btn-g">Ver Campanha</a>
+    </div>
+  </div>
+  <span class="hero-scroll">scroll</span>
+</section>
+
+<!-- SOBRE -->
+<div class="about" id="sobre">
+  <div class="about-txt">
+    <p class="sec-label">Nossa História</p>
+    <h2 class="sec-title">Feito Para<br><span>Vencer.</span></h2>
+    <p class="about-body">Desde 1964, a Nike redefine o que significa ser atleta. Cada produto é criado com tecnologia de ponta, pensado para quem não aceita o segundo lugar. Do asfalto à pista, da academia à rua — vestimos quem move o mundo.</p>
+    <div class="about-stats">
+      <div class="a-stat"><p>50+</p><p>Anos de Inovação</p></div>
+      <div class="a-stat"><p>170</p><p>Países Presentes</p></div>
+      <div class="a-stat"><p>#1</p><p>Marca Esportiva</p></div>
+    </div>
+  </div>
+  <div class="about-img"></div>
+</div>
+
+<!-- VÍDEO -->
+<section class="video-section" id="video">
+  <p class="sec-label">Campanha Oficial</p>
+  <h2 class="sec-title">Feel The<br><span>Unreal.</span></h2>
+  <div class="video-wrap">
+    <iframe
+      src="https://www.youtube.com/embed/XsO3CFF0O5o?rel=0&modestbranding=1&color=white"
+      title="Nike Air Max DN — Feel The Unreal ft. Haaland, Drake, Billie Eilish"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+  <p class="video-caption">Nike Air Max DN · <strong>"Feel The Unreal"</strong> · feat. Haaland · Drake · Billie Eilish · Sha'Carri Richardson</p>
+</section>
+
+<!-- PRODUTOS -->
+<section class="produtos" id="produtos">
+  <p class="sec-label">Coleção 2025</p>
+  <h2 class="sec-title">Nossos<br><span>Produtos</span></h2>
+  <ul class="prod-grid">
+
+    <li class="prod-card">
+      <div class="prod-img">
+        <span class="prod-tag">🔥 Bestseller</span>
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80&auto=format&fit=crop" alt="Nike Air Max 270"
+             onerror="this.style.background='#1c1c1c';this.style.minHeight='300px'">
+        <div class="prod-overlay">
+          <p class="prod-genre">Running · Lifestyle</p>
+          <h3 class="prod-name-ov">Air Max 270</h3>
+        </div>
+        <div class="prod-quick"><button class="btn-buy" onclick="addCart('Air Max 270')">+ Adicionar</button></div>
+      </div>
+      <div class="prod-body">
+        <h2 class="prod-name">Nike Air Max 270</h2>
+        <p class="prod-desc">Amortecimento máximo com a maior unidade Air da Nike. Conforto todo o dia.</p>
+        <div class="prod-foot">
+          <span class="prod-price">R$ 899,00</span>
+          <button class="btn-buy" onclick="addCart('Air Max 270')">Comprar</button>
+        </div>
+      </div>
+    </li>
+
+    <li class="prod-card">
+      <div class="prod-img">
+        <span class="prod-tag" style="background:#111;color:var(--laranja);border:1px solid var(--laranja);">✦ Novo</span>
+        <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=600&q=80&auto=format&fit=crop" alt="Nike Air Max DN"
+             onerror="this.style.background='#1c1c1c';this.style.minHeight='300px'">
+        <div class="prod-overlay">
+          <p class="prod-genre">Innovation · Air Max</p>
+          <h3 class="prod-name-ov">Air Max DN</h3>
+        </div>
+        <div class="prod-quick"><button class="btn-buy" onclick="addCart('Air Max DN')">+ Adicionar</button></div>
+      </div>
+      <div class="prod-body">
+        <h2 class="prod-name">Nike Air Max DN</h2>
+        <p class="prod-desc">Tecnologia Dynamic Air inédita. Sensação de caminhar sobre o ar como nunca antes.</p>
+        <div class="prod-foot">
+          <span class="prod-price">R$ 1.299,00</span>
+          <button class="btn-buy" onclick="addCart('Air Max DN')">Comprar</button>
+        </div>
+      </div>
+    </li>
+
+    <li class="prod-card">
+      <div class="prod-img">
+        <span class="prod-tag">⚡ Destaque</span>
+        <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&q=80&auto=format&fit=crop" alt="Nike React Infinity"
+             onerror="this.style.background='#1c1c1c';this.style.minHeight='300px'">
+        <div class="prod-overlay">
+          <p class="prod-genre">Running · Performance</p>
+          <h3 class="prod-name-ov">React Infinity</h3>
+        </div>
+        <div class="prod-quick"><button class="btn-buy" onclick="addCart('React Infinity')">+ Adicionar</button></div>
+      </div>
+      <div class="prod-body">
+        <h2 class="prod-name">Nike React Infinity</h2>
+        <p class="prod-desc">Corrida mais suave. Espuma React que retorna energia a cada passada.</p>
+        <div class="prod-foot">
+          <span class="prod-price">R$ 749,00</span>
+          <button class="btn-buy" onclick="addCart('React Infinity')">Comprar</button>
+        </div>
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+<!-- LOCALIZAÇÃO -->
+<section class="location" id="loja">
+  <p class="sec-label">Onde Estamos</p>
+  <h2 class="sec-title">Nossas<br><span>Lojas</span></h2>
+  <div class="loc-grid">
+
+    <!-- Mapa – Nike Store São Paulo (Av. Paulista) -->
+    <div class="map-wrap">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1!2d-46.6543!3d-23.5629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sNike%20Store%20Paulista!5e0!3m2!1spt-BR!2sbr!4v1710000000000!5m2!1spt-BR!2sbr"
+        allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Nike Store São Paulo">
+      </iframe>
+    </div>
+
+    <!-- Info -->
+    <div class="loc-info">
+
+      <div class="loc-card">
+        <p class="loc-card-label">📍 Loja Principal</p>
+        <h3>Nike Store Paulista</h3>
+        <p>Av. Paulista, 2064<br>Bela Vista — São Paulo, SP<br>CEP 01310-200</p>
+        <div class="loc-meta">
+          <span>📞 <strong>(11) 3284-0900</strong></span>
+          <span>🌐 <strong>nike.com.br</strong></span>
+        </div>
+      </div>
+
+      <div class="loc-card">
+        <p class="loc-card-label">📍 Filial Rio de Janeiro</p>
+        <h3>Nike Store Ipanema</h3>
+        <p>Rua Visconde de Pirajá, 351<br>Ipanema — Rio de Janeiro, RJ<br>CEP 22410-003</p>
+        <div class="loc-meta">
+          <span>📞 <strong>(21) 2523-4100</strong></span>
+          <span>🌐 <strong>nike.com.br</strong></span>
+        </div>
+      </div>
+
+      <div class="loc-card-dark">
+        <h3>Horário de Funcionamento</h3>
+        <div class="loc-hours">
+          <div><p>Segunda a Sexta</p><p>10h às 22h</p></div>
+          <div><p>Sábado</p><p>10h às 22h</p></div>
+          <div><p>Domingo</p><p>12h às 20h</p></div>
+          <div><p>Feriados</p><p>12h às 20h</p></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div class="ft-logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike"
+           onerror="this.style.display='none'">
+      <p class="ft-desc">Inspirando atletas ao redor do mundo desde 1964. Performance, inovação e estilo em cada produto.</p>
+    </div>
+    <div>
+      <p class="ft-ht">Produtos</p>
+      <ul class="ft-links">
+        <li><a href="#produtos">Tênis</a></li>
+        <li><a href="#produtos">Roupas</a></li>
+        <li><a href="#produtos">Acessórios</a></li>
+        <li><a href="#produtos">Air Max</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="ft-ht">Empresa</p>
+      <ul class="ft-links">
+        <li><a href="#sobre">Sobre Nós</a></li>
+        <li><a href="#">Carreiras</a></li>
+        <li><a href="#">Imprensa</a></li>
+        <li><a href="#">Investidores</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="ft-ht">Ajuda</p>
+      <ul class="ft-links">
+        <li><a href="#loja">Nossas Lojas</a></li>
+        <li><a href="#">Trocas</a></li>
+        <li><a href="#">Rastreio</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <span>© 2025 Nike, Inc. Todos os direitos reservados.</span>
+    <span>Privacidade · Termos · Cookies</span>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <div class="modal-ico">✅</div>
+    <h3 class="modal-t">Adicionado!</h3>
+    <p class="modal-p" id="modal-msg">Produto adicionado à sua sacola com sucesso.</p>
+    <button class="modal-close" onclick="closeModal()">Continuar</button>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+// Header scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('hdr').style.background =
+    window.scrollY > 60 ? 'rgba(8,8,8,1)' : 'rgba(8,8,8,.95)';
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+
+// Cart
+function addCart(nome){
+  document.getElementById('modal-msg').textContent = `"${nome}" foi adicionado à sua sacola com sucesso.`;
+  document.getElementById('modal').classList.add('on');
+}
+function closeModal(){ document.getElementById('modal').classList.remove('on'); }
+document.getElementById('modal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
+
+// Toast
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('on');
+  setTimeout(()=>t.classList.remove('on'),2800);
+}
+
+// Hover effects on cards
+document.querySelectorAll('.prod-card img').forEach(img=>{
+  img.parentElement.parentElement.addEventListener('mouseenter',()=>img.style.filter='brightness(1)');
+  img.parentElement.parentElement.addEventListener('mouseleave',()=>img.style.filter='brightness(.8)');
+});
+</script>
+</body>
+</html>
